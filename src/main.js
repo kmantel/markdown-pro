@@ -142,7 +142,8 @@ document.addEventListener('DOMContentLoaded', function () {
         '|', 'unordered-list', 'ordered-list',
         '|', 'clean-block',
         '|', 'link', 'image',
-        '|', 'table'
+        '|', 'table',
+        '|', 'undo', 'redo',
       ],
     });
 
