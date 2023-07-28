@@ -144,6 +144,31 @@ document.addEventListener('DOMContentLoaded', function () {
         '|', 'link', 'image',
         '|', 'table',
         '|', 'undo', 'redo',
+        '|',
+        {
+          className: 'fa fa-outdent',
+          default: true,
+          name: 'outdent',
+          noDisable: true,
+          title: 'Outdent',
+          action: function () {
+            var cm = window.easymde.codemirror;
+            cm.execCommand('shiftTabAndUnindentMarkdownList');
+            cm.focus();
+          }
+        },
+        {
+          className: 'fa fa-indent',
+          default: true,
+          name: 'indent',
+          noDisable: true,
+          title: 'Indent',
+          action: function () {
+            var cm = window.easymde.codemirror;
+            cm.execCommand('tabAndIndentMarkdownList');
+            cm.focus();
+          }
+        },
       ],
     });
 
