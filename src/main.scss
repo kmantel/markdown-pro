@@ -28,7 +28,7 @@ body, html {
 }
 
 .editor-toolbar, .editor-toolbar.fullscreen {
-  background-color: var(--sn-stylekit-contrast-background-color);
+  background-color: var(--sn-stylekit-background-color);
   border-bottom: 1px solid var(--sn-stylekit-border-color);
   overflow: visible; // on windows, if window is too small, horizontal scrollbar will appear fixed without this
 
