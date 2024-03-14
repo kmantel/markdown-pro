@@ -169,6 +169,17 @@ document.addEventListener('DOMContentLoaded', function () {
             cm.focus();
           }
         },
+        {
+          className: 'fa fa-search',
+          default: true,
+          name: 'search',
+          noDisable: true,
+          title: 'Find',
+          action: function() {
+            var cm = window.easymde.codemirror;
+            cm.execCommand('find');
+          }
+        }
       ],
     });
 
