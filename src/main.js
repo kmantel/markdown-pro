@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
           window.easymde.togglePreview();
         }
       } else if (mode === 'split') {
-        if (!window.easymde.isSideBySideActive()) {
+        if (!window.easymde.isSideBySideActive() && componentRelay.environment !== 'mobile') {
           window.easymde.toggleSideBySide();
         }
         // falback config
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (editor) {
         if (editor.isPreviewActive()) return 'preview';
-        if (editor.isSideBySideActive()) return 'split';
+        if (editor.isSideBySideActive() && componentRelay.environment !== 'mobile') return 'split';
       }
       return 'edit';
     };
