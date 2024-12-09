@@ -89,9 +89,27 @@ body, html {
     }
   }
   .CodeMirror-dialog-top {
+    position: fixed;
+    display: inline-block;
+    overflow: auto;
+    margin-top: 65px;
+    margin-left: 75%;
+    width: fit-content;
+  }
+  .CodeMirror-dialog-top {
     @media screen and (max-width: 525px) {
       margin-top: 80px;
       margin-left: 50%;
+    }
+    @media
+      only screen and (-webkit-min-device-pixel-ratio: 3.5),
+      only screen and (   min--moz-device-pixel-ratio: 3.5),
+      only screen and (     -o-min-device-pixel-ratio: 3.5/1),
+      only screen and (        min-device-pixel-ratio: 3.5),
+      only screen and (                min-resolution: 537dpi),
+      only screen and (                min-resolution: 3.5dppx) {
+        margin-top: 80px;
+        margin-left: 50%;
     }
 }
 
