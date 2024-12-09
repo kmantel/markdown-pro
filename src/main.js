@@ -90,6 +90,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!window.easymde.isSideBySideActive() && componentRelay.environment !== 'mobile') {
           window.easymde.toggleSideBySide();
         }
+        else if (window.easymde.isSideBySideActive() && componentRelay.environment === 'mobile') {
+          window.easymde.toggleSideBySide();
+        }
         // falback config
       } else if (window.easymde.isPreviewActive()) {
         window.easymde.togglePreview();
