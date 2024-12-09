@@ -96,10 +96,16 @@ body, html {
     margin-left: 75%;
     width: fit-content;
   }
-  @media screen and (max-width: 525px) {
+  @media screen and (min-width: 481px) and (max-width: 525px) {
     .CodeMirror-dialog-top {
       margin-top: 80px;
       margin-left: 50%;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .CodeMirror-dialog-top {
+      margin-top: 80px;
+      margin-left: 40%;
     }
   }
   @media
