@@ -96,21 +96,24 @@ body, html {
     margin-left: 75%;
     width: fit-content;
   }
-  .CodeMirror-dialog-top {
-    @media screen and (max-width: 525px) {
+  @media screen and (max-width: 525px) {
+    .CodeMirror-dialog-top {
       margin-top: 80px;
       margin-left: 50%;
     }
-    @media
-      only screen and (-webkit-min-device-pixel-ratio: 3.5),
-      only screen and (   min--moz-device-pixel-ratio: 3.5),
-      only screen and (     -o-min-device-pixel-ratio: 3.5/1),
-      only screen and (        min-device-pixel-ratio: 3.5),
-      only screen and (                min-resolution: 537dpi),
-      only screen and (                min-resolution: 3.5dppx) {
-        margin-top: 80px;
-        margin-left: 50%;
+  }
+  @media
+    only screen and (-webkit-min-device-pixel-ratio: 3.5),
+    only screen and (   min--moz-device-pixel-ratio: 3.5),
+    only screen and (     -o-min-device-pixel-ratio: 3.5/1),
+    only screen and (        min-device-pixel-ratio: 3.5),
+    only screen and (                min-resolution: 537dpi),
+    only screen and (                min-resolution: 3.5dppx) {
+    .CodeMirror-dialog-top {
+      margin-top: 80px;
+      margin-left: 50%;
     }
+  }
 }
 
 .editor-preview-active, .editor-preview-active-side {
