@@ -88,11 +88,6 @@ body, html {
       top: 50px !important;
     }
   }
-  .CodeMirror-dialog-top {
-    @media screen and (max-width: 525px) {
-      margin-top: 80px;
-      margin-left: 50%;
-    }
 }
 
 .editor-preview-active, .editor-preview-active-side {
