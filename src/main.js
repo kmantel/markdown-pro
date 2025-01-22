@@ -148,6 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '|', 'find',
       ],
       tabSize: 4,
+      styleSelectedText: false,
     });
 
     /**
