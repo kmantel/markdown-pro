@@ -5,6 +5,11 @@ body, html {
   font-size: var(--sn-stylekit-base-font-size);
   background-color: transparent;
   line-height: normal;
+
+  & ::selection {
+    color: var(--text-selection-color);
+    background: var(--text-selection-background-color);
+  }
 }
 
 * {
