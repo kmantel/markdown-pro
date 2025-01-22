@@ -147,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '|', 'outdent', 'indent',
         '|', 'find',
       ],
+      tabSize: 4,
     });
 
     /**
