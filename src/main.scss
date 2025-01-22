@@ -1,5 +1,10 @@
 @import 'font-awesome/css/font-awesome.css';
 
+:root {
+  --md-text-selection-color: var(--text-selection-color, var(--sn-stylekit-foreground-color));
+  --md-text-selection-background-color: var(--text-selection-background-color, var(--highlight-color));
+}
+
 body, html {
   font-family: sans-serif;
   font-size: var(--sn-stylekit-base-font-size);
@@ -15,6 +20,11 @@ body, html {
 * {
   // To prevent gray flash when focusing input on mobile Safari
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+*::selection {
+    color: var(--md-text-selection-color);
+    background: var(--md-text-selection-background-color);
 }
 
 .editor-toolbar.fullscreen, .CodeMirror-fullscreen {
@@ -184,16 +194,16 @@ body, html {
     font-size: 90%; // font-family makes font look a bit big
 
     &.CodeMirror-selectedtext {
-      color: var(--text-selection-color) !important;
-      background: var(--text-selection-background-color) !important;
+      color: var(--md-text-selection-color) !important;
+      background: var(--md-text-selection-background-color) !important;
     }
   }
 
   .cm-header {
     color: var(--sn-stylekit-editor-foreground-color);
     &.CodeMirror-selectedtext {
-      color: var(--text-selection-color) !important;
-      background: var(--text-selection-background-color) !important;
+      color: var(--md-text-selection-color) !important;
+      background: var(--md-text-selection-background-color) !important;
     }
   }
 
@@ -207,8 +217,8 @@ body, html {
       color: var(--sn-stylekit-info-color) !important;
 
       &.CodeMirror-selectedtext {
-        color: var(--text-selection-color) !important;
-        background: var(--text-selection-background-color) !important;
+        color: var(--md-text-selection-color) !important;
+        background: var(--md-text-selection-background-color) !important;
       }
     }
   }
@@ -221,8 +231,8 @@ body, html {
     color: var(--sn-stylekit-info-color) !important;
 
     &.CodeMirror-selectedtext {
-      color: var(--text-selection-color) !important;
-      background: var(--text-selection-background-color) !important;
+      color: var(--md-text-selection-color) !important;
+      background: var(--md-text-selection-background-color) !important;
     }
   }
 
@@ -237,12 +247,12 @@ body, html {
 }
 
 .CodeMirror-selected {
-  background: var(--text-selection-background-color) !important;
+  background: var(--md-text-selection-background-color) !important;
 }
 
 .CodeMirror-selectedtext {
-  color: var(--text-selection-color) !important;
-  background: var(--text-selection-background-color) !important;
+  color: var(--md-text-selection-color) !important;
+  background: var(--md-text-selection-background-color) !important;
 }
 
 .CodeMirror-gutters {
@@ -349,6 +359,6 @@ body, html {
 }
 
 .CodeMirror-line::selection, .CodeMirror-line>span::selection, .CodeMirror-line>span>span::selection {
-  color: var(--text-selection-color) !important;
-  background: var(--text-selection-background-color) !important;
+  color: var(--md-text-selection-color) !important;
+  background: var(--md-text-selection-background-color) !important;
 }
