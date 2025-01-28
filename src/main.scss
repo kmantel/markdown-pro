@@ -358,6 +358,12 @@ body, html {
   line-height: normal;
 }
 
+.linux-desktop,
+.linux-desktop .CodeMirror pre.CodeMirror-line,
+.linux-desktop .CodeMirror pre.CodeMirror-line-like {
+  line-height: 1.5;
+}
+
 .CodeMirror-line::selection, .CodeMirror-line>span::selection, .CodeMirror-line>span>span::selection {
   color: var(--md-text-selection-color) !important;
   background: var(--md-text-selection-background-color) !important;
