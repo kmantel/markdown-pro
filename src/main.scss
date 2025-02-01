@@ -3,6 +3,15 @@
 :root {
   --md-text-selection-color: var(--text-selection-color, var(--sn-stylekit-foreground-color));
   --md-text-selection-background-color: var(--text-selection-background-color, var(--highlight-color));
+
+  @media screen and (max-width: 715px) {
+    --toolbar-height: 80px;
+    --scroll-min-height: unset !important;
+  }
+
+  @media screen and (min-width: 716px) {
+    --toolbar-height: 50px;
+  }
 }
 
 body, html {
@@ -75,34 +84,19 @@ body, html {
 }
 
 .editor-toolbar.fullscreen {
-  @media screen and (max-width: 715px) {
-    height: 80px !important;
-  }
-  @media screen and (min-width: 716px) {
-    height: 50px !important;
-  }
+  height: var(--toolbar-height);
 }
 
 .EasyMDEContainer {
   .CodeMirror-fullscreen {
-    @media screen and (max-width: 715px) {
-      top: 80px !important;
+    top: var(--toolbar-height);
 
-      .CodeMirror-scroll {
-        min-height: unset !important;
-      }
-    }
-    @media screen and (min-width: 716px) {
-      top: 50px !important;
+    .CodeMirror-scroll {
+      min-height: var(--scroll-min-height);
     }
   }
   .editor-preview-side {
-    @media screen and (max-width: 715px) {
-      top: 80px !important;
-    }
-    @media screen and (min-width: 716px) {
-      top: 50px !important;
-    }
+    top: var(--toolbar-height);
   }
 }
 
