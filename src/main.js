@@ -106,7 +106,9 @@ document.addEventListener('DOMContentLoaded', function () {
       inputStyle: getInputStyleForEnvironment(),
       status: false,
       shortcuts: {
-        toggleSideBySide: 'Cmd-Alt-P'
+        toggleSideBySide: 'Cmd-Alt-P',
+        'current-time': 'Cmd-J',
+        'bolt': 'Cmd-;',
       },
       // Syntax highlighting is disabled until we figure out performance issue: https://github.com/sn-extensions/advanced-markdown-editor/pull/20#issuecomment-513811633
       // renderingConfig: {
@@ -143,6 +145,25 @@ document.addEventListener('DOMContentLoaded', function () {
         '|', 'clean-block',
         '|', 'link', 'image',
         '|', 'table',
+        '|',
+        {
+          className: 'fa fa-clock-o',
+          default: true,
+          name: 'current-time',
+          noDisable: false,
+          noMobile: false,
+          title: 'Add current time',
+          action: addCurrentTime,
+        },
+        {
+          className: 'fa fa-bolt',
+          default: true,
+          name: 'bolt',
+          noDisable: false,
+          noMobile: false,
+          title: 'Add C',
+          action: addC,
+        },
         '|', 'undo', 'redo',
         '|', 'outdent', 'indent',
         '|', 'find',
@@ -351,5 +372,18 @@ document.addEventListener('DOMContentLoaded', function () {
   function getInputStyleForEnvironment() {
     const environment = componentRelay.environment ?? 'web';
     return environment === 'mobile' ? 'textarea' : 'contenteditable';
+  }
+
+  function addCurrentTime(editor) {
+    const cm = editor.codemirror;
+    const cur_time = new Date().toTimeString().substring(0, 5).replace(/^0/, '');
+    cm.replaceSelection(`${cur_time} - `);
+    cm.focus();
+  }
+
+  function addC(editor) {
+    const cm = editor.codemirror;
+    cm.replaceSelection('**C** - ');
+    cm.focus();
   }
 });

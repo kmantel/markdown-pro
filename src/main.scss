@@ -4,14 +4,15 @@
   --md-text-selection-color: var(--text-selection-color, var(--sn-stylekit-foreground-color));
   --md-text-selection-background-color: var(--text-selection-background-color, var(--highlight-color));
 
-  @media screen and (max-width: 715px) {
+  @media screen and (max-width: 789px) {
     --toolbar-height: 80px;
     --scroll-min-height: unset !important;
   }
 
-  @media screen and (min-width: 716px) {
+  @media screen and (min-width: 790px) {
     --toolbar-height: 50px;
   }
+  --search-dialog-margin-top: var(--toolbar-height);
 }
 
 body, html {
