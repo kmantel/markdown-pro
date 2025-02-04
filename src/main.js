@@ -374,10 +374,61 @@ document.addEventListener('DOMContentLoaded', function () {
     return environment === 'mobile' ? 'textarea' : 'contenteditable';
   }
 
-  function addCurrentTime(editor) {
+  function _escapeRegexChars(s) {
+    return s.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
+  }
+
+  function addCurrentTime(editor, suffix=' - ', alt_wrapping=['(', ')']) {
+    function undefinedToEmpty(v) {
+      if (v === undefined) {
+        v = '';
+      }
+      return v;
+    }
+
+    function getTimeRePattern(wrapping=['', '']) {
+      return new RegExp(
+        `(.*?)(${wrapping[0]})(\\d\\d?:\\d\\d)(${wrapping[1]})(.*)?`
+      );
+    }
+
     const cm = editor.codemirror;
     const cur_time = new Date().toTimeString().substring(0, 5).replace(/^0/, '');
-    cm.replaceSelection(`${cur_time} - `);
+
+    let time_str = `${cur_time}${suffix}`;
+    let time_str_alt = `${alt_wrapping[0]}${cur_time}${alt_wrapping[1]}${suffix}`;
+
+    let prev_pos = cm.getCursor('from');
+    let cur_pos = cm.getCursor('to');
+    let sel = cm.getSelection();
+
+    if (sel == '') {
+      prev_pos = {
+        'line': cur_pos.line,
+        'ch': Math.max(0, cur_pos.ch - time_str_alt.length)
+      };
+      sel = cm.getRange(prev_pos, cur_pos);
+      time_str = sel + time_str;
+    }
+    else {
+      cur_pos.ch += sel.length;
+    }
+
+    let alt_pat = getTimeRePattern(
+      [_escapeRegexChars(alt_wrapping[0]), _escapeRegexChars(alt_wrapping[1])]
+    );
+    let is_alt = sel.match(alt_pat);
+    if (is_alt !== null) {
+      time_str = `${is_alt[1]}${is_alt[3]}${undefinedToEmpty(is_alt[5])}`;
+    }
+    else {
+      let std_pat = getTimeRePattern();
+      let is_std = sel.match(std_pat);
+      if (is_std != null) {
+        time_str = `${is_std[1]}${alt_wrapping[0]}${is_std[3]}${alt_wrapping[1]}${undefinedToEmpty(is_std[5])}`;
+      }
+    }
+    cm.replaceRange(time_str, prev_pos, cur_pos);
     cm.focus();
   }
 
