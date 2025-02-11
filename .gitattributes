@@ -1,0 +1,3 @@
+dist/vendor/easymd/easymde.css diff=mincss
+dist/vendor/easymd/easymd.js diff=minjs
+dist/dist.js diff=minjs
