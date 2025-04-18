@@ -96,9 +96,6 @@ body, html {
       min-height: var(--scroll-min-height);
     }
   }
-  .editor-preview-side {
-    top: var(--toolbar-height);
-  }
 }
 
 .editor-preview-active, .editor-preview-active-side {
