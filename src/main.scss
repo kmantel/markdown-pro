@@ -363,3 +363,13 @@ body, html {
   color: var(--md-text-selection-color) !important;
   background: var(--md-text-selection-background-color) !important;
 }
+
+.CodeMirror .CodeMirror-code .cm-searching {
+  background-color: var(--easymd-find-result-background);
+  color: var(--easymd-find-result-foreground);
+}
+
+.CodeMirror .CodeMirror-code .cm-searching-selected {
+  background-color: var(--easymd-find-result-selected-background);
+  color: var(--easymd-find-result-selected-foreground);
+}
